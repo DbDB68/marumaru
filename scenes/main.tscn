@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="Texture2D" path="res://assets/sprites/floor.png" id="2_floor"]
-[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="3_npc"]
 [ext_resource type="PackedScene" path="res://scenes/dialog_box.tscn" id="4_dialog"]
 [ext_resource type="PackedScene" path="res://scenes/door.tscn" id="5_door"]
 [ext_resource type="Script" path="res://scripts/room.gd" id="6_room"]
@@ -24,6 +23,7 @@ size = Vector2(32, 32)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("6_room")
+room_id = "main"
 
 [node name="Floor" type="TextureRect" parent="."]
 z_index = -10
@@ -91,9 +91,6 @@ color = Color(0.62, 0.18, 0.22, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(480, 270)
-
-[node name="Hasebe" parent="." instance=ExtResource("3_npc")]
-position = Vector2(700, 400)
 
 [node name="DoorToCourtyard" parent="." instance=ExtResource("5_door")]
 position = Vector2(480, 524)

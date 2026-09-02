@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  PASS: 主屋加载后应能找到主角
+  PASS: 日程=夜间警备(21:00)，他应出现在主屋
+  PASS: 踩门后应切换到庭院 (当前: Courtyard)
+  PASS: 切换后主角应在庭院出生点 (实际: (480.0, 80.0))
+  PASS: 日程=夜间警备(21:00) 在 main，他不应出现在庭院
+  PASS: 踩庭院的门应回到主屋 (当前: Main)
+  PASS: 回来后主角应在主屋出生点 (实际: (480.0, 480.0))
+SWITCH TEST: done

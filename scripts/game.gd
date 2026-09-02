@@ -4,6 +4,7 @@ extends Node
 
 var _pending_spawn := ""
 var _fade: ColorRect
+var _clock: Label
 var _busy := false
 
 
@@ -17,6 +18,25 @@ func _ready() -> void:
 	_fade.modulate.a = 0.0
 	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(_fade)
+	# 右上角现实时钟，方便对照日程表
+	_clock = Label.new()
+	_clock.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	_clock.offset_left = -70.0
+	_clock.offset_top = 6.0
+	_clock.offset_right = -8.0
+	_clock.offset_bottom = 24.0
+	_clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_clock.add_theme_font_size_override("font_size", 14)
+	_clock.add_theme_color_override("font_color", Color(1, 1, 1, 0.85))
+	_clock.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.8))
+	_clock.add_theme_constant_override("shadow_offset_x", 1)
+	_clock.add_theme_constant_override("shadow_offset_y", 1)
+	layer.add_child(_clock)
+
+
+func _process(_delta: float) -> void:
+	var t := Time.get_time_dict_from_system()
+	_clock.text = "%02d:%02d" % [t.hour, t.minute]
 
 
 func change_room(room_path: String, spawn_name: String) -> void:

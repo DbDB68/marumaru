@@ -1,0 +1,60 @@
+{
+  "hasebe": [
+    {
+      "from": "06:00",
+      "activity": "晨练",
+      "room": "courtyard",
+      "pos": [480, 300],
+      "mode": "wander",
+      "lines": ["晨练不可懈怠。", "呼……出身汗，痛快。"]
+    },
+    {
+      "from": "08:00",
+      "activity": "打扫",
+      "room": "main",
+      "pos": [300, 200],
+      "mode": "wander",
+      "lines": ["本丸的一尘不染，由我守护。", "这里还落着灰呢……"]
+    },
+    {
+      "from": "12:00",
+      "activity": "午饭",
+      "room": "main",
+      "pos": [600, 240],
+      "mode": "stay",
+      "lines": ["该用饭了。主也请趁热。", "今日的味噌汤味道不错。"]
+    },
+    {
+      "from": "14:00",
+      "activity": "巡逻",
+      "room": "courtyard",
+      "pos": [600, 200],
+      "mode": "wander",
+      "lines": ["巡逻中。……没有异常。", "庭院的花开得正好。"]
+    },
+    {
+      "from": "18:00",
+      "activity": "晚饭",
+      "room": "main",
+      "pos": [600, 240],
+      "mode": "stay",
+      "lines": ["今日的公务到此为止。", "晚饭已经备好了。"]
+    },
+    {
+      "from": "21:00",
+      "activity": "夜间警备",
+      "room": "main",
+      "pos": [480, 150],
+      "mode": "wander",
+      "lines": ["夜里也请安心歇息，有我在。", "这个时辰还有精神吗，主？"]
+    },
+    {
+      "from": "23:00",
+      "activity": "休息",
+      "room": "main",
+      "pos": [820, 460],
+      "mode": "stay",
+      "lines": ["……还没睡吗？熬夜可不好。", "晚安，主。明日也请多指教。"]
+    }
+  ]
+}

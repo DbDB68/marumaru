@@ -21,7 +21,14 @@ func _run() -> void:
 
 	var player := get_tree().get_first_node_in_group("player")
 	_check(player != null, "主屋加载后应能找到主角")
-	print("  踩门前主角位置: ", player.global_position)
+
+	# 日程生成检查：此时刻长谷部该在哪个房间，就该出现在哪
+	var slot := Schedule.current_slot("hasebe")
+	var npc := get_tree().get_first_node_in_group("npcs")
+	if slot.get("room") == "main":
+		_check(npc != null, "日程=%s(%s)，他应出现在主屋" % [slot.get("activity"), slot.get("from")])
+	else:
+		_check(npc == null, "日程=%s(%s) 在 %s，他不应出现在主屋" % [slot.get("activity"), slot.get("from"), slot.get("room")])
 
 	# 传送到主屋门口触发切换
 	player.global_position = Vector2(480, 524)
@@ -32,6 +39,13 @@ func _run() -> void:
 	var p2 := get_tree().get_first_node_in_group("player")
 	_check(p2 != null and p2.global_position.distance_to(Vector2(480, 80)) < 1.0,
 		"切换后主角应在庭院出生点 (实际: %s)" % (p2.global_position if p2 else "null"))
+
+	# 庭院侧的日程生成检查
+	var npc2 := get_tree().get_first_node_in_group("npcs")
+	if slot.get("room") == "courtyard":
+		_check(npc2 != null, "日程=%s(%s)，他应出现在庭院" % [slot.get("activity"), slot.get("from")])
+	else:
+		_check(npc2 == null, "日程=%s(%s) 在 %s，他不应出现在庭院" % [slot.get("activity"), slot.get("from"), slot.get("room")])
 
 	# 再踩庭院的门回主屋
 	p2.global_position = Vector2(480, 16)

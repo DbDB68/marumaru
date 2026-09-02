@@ -1,12 +1,16 @@
 extends CharacterBody2D
-## 刀男 NPC：待机 + 随机溜达；玩家靠近可按 Z 搭话
+## 刀男 NPC：按日程表（data/schedules.json）生活
+## - mode=wander：据点附近待机 + 随机溜达；mode=stay：原地站桩
+## - 到点换活动：同房间走过去，换房间就下班消失（去别的房间能逮到他）
 ## 素材表与主角同规格：行顺序 down / up / left / right，每方向 2 帧
 
 const SPEED := 45.0
 const ROAM_RADIUS := 110.0
 const IDLE_MIN := 1.5
 const IDLE_MAX := 4.5
+const SCHEDULE_CHECK_INTERVAL := 10.0
 
+@export var npc_id := "hasebe"
 @export var lines: Array[String] = [
 	"主。……有何吩咐？",
 	"本丸的警备就交给我吧。",
@@ -21,19 +25,32 @@ var _target: Vector2
 var _idle_left := 0.0
 var _walking := false
 var _stuck := 0.0
+var _slot: Dictionary = {}
+var _mode := "wander"
+var _schedule_check_left := SCHEDULE_CHECK_INTERVAL
+var _leaving := false
 
 
 func _ready() -> void:
 	add_to_group("npcs")
-	_home = global_position
+	_apply_slot(Schedule.current_slot(npc_id), true)
 	_idle_left = randf_range(IDLE_MIN, IDLE_MAX)
 
 
 func _physics_process(delta: float) -> void:
+	if _leaving:
+		return
 	if _dialog_open():
 		# 对话时立正
 		velocity = Vector2.ZERO
 		sprite.pause()
+		return
+	_schedule_check_left -= delta
+	if _schedule_check_left <= 0.0:
+		_schedule_check_left = SCHEDULE_CHECK_INTERVAL
+		_check_schedule()
+	if _mode == "stay":
+		velocity = Vector2.ZERO
 		return
 	if _walking:
 		_walk_step(delta)
@@ -42,6 +59,45 @@ func _physics_process(delta: float) -> void:
 		_idle_left -= delta
 		if _idle_left <= 0.0:
 			_pick_target()
+
+
+## 应用日程槽；teleport 为 true 时直接摆到位（出生用），否则走过去
+func _apply_slot(slot: Dictionary, teleport := false) -> void:
+	_slot = slot
+	if slot.is_empty():
+		_home = global_position
+		return
+	var pos: Array = slot.get("pos", [global_position.x, global_position.y])
+	_home = Vector2(pos[0], pos[1])
+	_mode = slot.get("mode", "wander")
+	if slot.has("lines"):
+		lines.assign(slot["lines"])
+	if teleport:
+		global_position = _home
+	else:
+		# 同房间换活动：走向新据点
+		_target = _home
+		_walking = true
+		_stuck = 0.0
+
+
+func _check_schedule() -> void:
+	var slot := Schedule.current_slot(npc_id)
+	if slot.is_empty() or slot.get("from") == _slot.get("from"):
+		return
+	if slot.get("room") != _slot.get("room"):
+		_leave_room()
+	else:
+		_apply_slot(slot)
+
+
+## 换房间：淡出消失（目标房间加载时房间脚本会按日程重新生成他）
+func _leave_room() -> void:
+	_leaving = true
+	velocity = Vector2.ZERO
+	var t := create_tween()
+	t.tween_property(self, "modulate:a", 0.0, 0.6)
+	t.tween_callback(queue_free)
 
 
 func _walk_step(delta: float) -> void:
