@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/expedition_panel.gd" id="1_script"]
+
+[node name="ExpeditionPanel" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -80.0
+offset_right = 110.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+text = "远征（番茄钟）"
+
+[node name="Status" type="Label" parent="Panel/VBox"]
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+text = "未派出。选个时长："
+
+[node name="StartButtons" type="HBoxContainer" parent="Panel/VBox"]
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="B25" type="Button" parent="Panel/VBox/StartButtons"]
+focus_mode = 0
+text = "25分钟"
+
+[node name="B45" type="Button" parent="Panel/VBox/StartButtons"]
+focus_mode = 0
+text = "45分钟"
+
+[node name="B60" type="Button" parent="Panel/VBox/StartButtons"]
+focus_mode = 0
+text = "60分钟"
+
+[node name="BottomButtons" type="HBoxContainer" parent="Panel/VBox"]
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Panel/VBox/BottomButtons"]
+focus_mode = 0
+text = "取消远征"
+
+[node name="Close" type="Button" parent="Panel/VBox/BottomButtons"]
+focus_mode = 0
+text = "关闭 (E)"

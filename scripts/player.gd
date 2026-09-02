@@ -13,8 +13,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if _dialog_open():
-		# 对话中站住，但动画要收到立正
+	if _ui_busy():
+		# 对话/面板开着时站住，动画也要立正
 		velocity = Vector2.ZERO
 		_update_animation(Vector2.ZERO)
 		return
@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# 忽略按住不放时的键盘连发，否则开关对话会疯狂切换
 	if event is InputEventKey and event.is_echo():
 		return
-	if event.is_action_pressed("interact") and not _dialog_open():
+	if event.is_action_pressed("interact") and not _ui_busy():
 		var npc := _nearest_npc()
 		if npc != null:
 			npc.face_toward(global_position)
@@ -66,3 +66,11 @@ func _dialog() -> Node:
 func _dialog_open() -> bool:
 	var d := _dialog()
 	return d != null and d.is_open()
+
+
+## 任一界面（对话框/远征面板）开着都算忙
+func _ui_busy() -> bool:
+	if _dialog_open():
+		return true
+	var p := get_tree().get_first_node_in_group("expedition_panel")
+	return p != null and p.is_open()

@@ -1,7 +1,8 @@
 extends Node2D
 ## 房间基座：
 ## 1) 切换进来时把主角摆到 Game 指定的出生点（出生点放在 Spawns/ 下）
-## 2) 按日程表生成此刻应该在这个房间的刀男
+## 2) 按日程表生成此刻应该在这个房间的刀男（远征中的刀男不出现）
+## 3) 监听远征出发/归来，刀男实时离场/回场
 
 @export var room_id := ""
 
@@ -9,6 +10,8 @@ extends Node2D
 func _ready() -> void:
 	_place_player()
 	_spawn_npcs()
+	Expedition.started.connect(_on_expedition_started)
+	Expedition.finished.connect(_on_expedition_finished)
 
 
 func _place_player() -> void:
@@ -23,6 +26,10 @@ func _place_player() -> void:
 
 func _spawn_npcs() -> void:
 	for npc_id in Schedule.all_npc_ids():
+		if Expedition.is_away(npc_id):
+			continue
+		if _has_npc(npc_id):
+			continue
 		var slot := Schedule.current_slot(npc_id)
 		if slot.get("room", "") != room_id:
 			continue
@@ -33,3 +40,21 @@ func _spawn_npcs() -> void:
 		var npc: Node2D = load(scene_path).instantiate()
 		npc.npc_id = npc_id
 		add_child(npc)
+
+
+func _has_npc(npc_id: String) -> bool:
+	for n in get_tree().get_nodes_in_group("npcs"):
+		if n.npc_id == npc_id and not n._leaving:
+			return true
+	return false
+
+
+## 远征出发：本房间里的刀男淡出离场
+func _on_expedition_started() -> void:
+	for n in get_tree().get_nodes_in_group("npcs"):
+		n._leave_room()
+
+
+## 远征归来：按当前日程把该在的刀男生成回来
+func _on_expedition_finished() -> void:
+	_spawn_npcs()
