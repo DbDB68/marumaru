@@ -8,6 +8,10 @@ const INTERACT_RANGE := 48.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+func _ready() -> void:
+	add_to_group("player")
+
+
 func _physics_process(_delta: float) -> void:
 	if _dialog_open():
 		# 对话中站住，但动画要收到立正

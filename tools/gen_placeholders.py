@@ -147,4 +147,44 @@ for i, y in enumerate(range(0, T, 4)):  # 错缝
     d.point([(xoff, y + 1), (xoff, y + 2), (xoff, y + 3)], fill=GAP)
 floor.save(OUT / "floor.png")
 
-print("done: assets/sprites/player.png, hasebe.png, floor.png")
+# ---------- 草地：16x16 可平铺 ----------
+grass = Image.new("RGBA", (T, T))
+d = ImageDraw.Draw(grass)
+GRASS = [(110, 152, 78, 255), (102, 144, 72, 255), (118, 158, 84, 255)]
+for y in range(T):
+    for x in range(T):
+        c = GRASS[(x * 5 + y * 11) % 3]
+        shade = ((x * 13 + y * 7) % 7) - 3
+        grass.putpixel((x, y), (c[0] + shade, c[1] + shade, c[2] + shade, 255))
+# 草叶尖：深色小点随机撒
+for i in range(14):
+    x, y = (i * 37 + 5) % T, (i * 53 + 9) % T
+    grass.putpixel((x, y), (80, 118, 56, 255))
+    if (x, y + 1)[1] < T:
+        grass.putpixel((x, y + 1), (96, 136, 66, 255))
+grass.save(OUT / "grass.png")
+
+# ---------- 樱花树：48x64，树冠粉色+树干 ----------
+TW, TH = 48, 64
+tree = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
+d = ImageDraw.Draw(tree)
+TRUNK = (96, 66, 44, 255)
+TRUNK_D = (76, 52, 34, 255)
+BLOOM = [(238, 178, 196, 255), (244, 196, 210, 255), (228, 160, 182, 255)]
+# 树干
+d.rectangle([21, 40, 26, 61], fill=TRUNK)
+d.line([(22, 40), (22, 61)], fill=TRUNK_D)
+d.polygon([(16, 62), (32, 62), (28, 56), (20, 56)], fill=TRUNK_D)  # 根部
+# 树冠：几团圆
+blobs = [(24, 22, 16), (12, 30, 10), (36, 30, 10), (18, 14, 9), (30, 14, 9)]
+for cx, cy, r in blobs:
+    c = BLOOM[(cx + cy) % 3]
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=c)
+# 花瓣高光点
+for i in range(20):
+    x, y = (i * 29 + 7) % TW, (i * 17 + 3) % 40
+    if tree.getpixel((x, y))[3] > 0:
+        tree.putpixel((x, y), (252, 224, 234, 255))
+tree.save(OUT / "tree.png")
+
+print("done: assets/sprites/player.png, hasebe.png, floor.png, grass.png, tree.png")
