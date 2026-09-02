@@ -187,4 +187,22 @@ for i in range(20):
         tree.putpixel((x, y), (252, 224, 234, 255))
 tree.save(OUT / "tree.png")
 
-print("done: assets/sprites/player.png, hasebe.png, floor.png, grass.png, tree.png")
+# ---------- 铺盖（被褥）：32x20，横放 ----------
+futon = Image.new("RGBA", (32, 20), (0, 0, 0, 0))
+d = ImageDraw.Draw(futon)
+SHEET = (240, 240, 232, 255)     # 床单
+BLANKET = (64, 90, 120, 255)     # 被子（绀色）
+BLANKET_D = (52, 74, 100, 255)
+PILLOW = (250, 248, 240, 255)
+PILLOW_D = (224, 220, 208, 255)
+d.rectangle([0, 2, 31, 17], fill=SHEET)          # 床单
+d.rectangle([2, 4, 9, 15], fill=PILLOW)          # 枕头
+d.line([(2, 15), (9, 15)], fill=PILLOW_D)
+d.rectangle([11, 3, 31, 16], fill=BLANKET)       # 被子
+d.line([(11, 3), (11, 16)], fill=BLANKET_D)
+d.line([(14, 4), (14, 15)], fill=BLANKET_D)      # 被子褶
+d.line([(20, 4), (20, 15)], fill=BLANKET_D)
+d.line([(26, 4), (26, 15)], fill=BLANKET_D)
+futon.save(OUT / "futon.png")
+
+print("done: assets/sprites/player.png, hasebe.png, floor.png, grass.png, tree.png, futon.png")
