@@ -6,10 +6,13 @@ extends Node2D
 
 @export var room_id := ""
 
+const Banter := preload("res://scripts/banter.gd")
+
 
 func _ready() -> void:
 	_place_player()
 	_spawn_npcs()
+	add_child(Banter.new())
 	Expedition.started.connect(_on_expedition_started)
 	Expedition.finished.connect(_on_expedition_finished)
 

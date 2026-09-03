@@ -29,6 +29,7 @@ var _slot: Dictionary = {}
 var _mode := "wander"
 var _schedule_check_left := SCHEDULE_CHECK_INTERVAL
 var _leaving := false
+var _bantering := false  # 小剧场（banter.gd）搭话中：立正站好
 
 
 func _ready() -> void:
@@ -40,8 +41,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if _leaving:
 		return
-	if _dialog_open():
-		# 对话时立正
+	if _bantering or _dialog_open():
+		# 搭话/小剧场时立正
 		velocity = Vector2.ZERO
 		sprite.pause()
 		return

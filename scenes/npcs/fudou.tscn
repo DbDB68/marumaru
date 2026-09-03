@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fudou.png" id="2_sheet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_down0"]
+atlas = ExtResource("2_sheet")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_down1"]
+atlas = ExtResource("2_sheet")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up0"]
+atlas = ExtResource("2_sheet")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up1"]
+atlas = ExtResource("2_sheet")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_left0"]
+atlas = ExtResource("2_sheet")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_left1"]
+atlas = ExtResource("2_sheet")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_right0"]
+atlas = ExtResource("2_sheet")
+region = Rect2(0, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_right1"]
+atlas = ExtResource("2_sheet")
+region = Rect2(16, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_npc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_down0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_down1")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up1")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_left0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_left1")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_right0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_right1")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(10, 8)
+
+[node name="Fudou" type="CharacterBody2D"]
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_npc")
+animation = &"walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape_body")

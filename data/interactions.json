@@ -1,0 +1,19 @@
+{
+  "fudou+hasebe": [
+    [
+      {"who": "fudou", "text": "信长公当年啊……"},
+      {"who": "hasebe", "text": "……打住。不想听。"},
+      {"who": "fudou", "text": "切。"}
+    ],
+    [
+      {"who": "hasebe", "text": "又喝酒？……大白天的。"},
+      {"who": "fudou", "text": "啰嗦。你又不是我的主。"},
+      {"who": "hasebe", "text": "为了本丸的风纪，我当然要管。"}
+    ],
+    [
+      {"who": "fudou", "text": "长谷部，陪我喝一杯。"},
+      {"who": "hasebe", "text": "公务在身。……一杯就一杯。"},
+      {"who": "fudou", "text": "嘻嘻。"}
+    ]
+  ]
+}

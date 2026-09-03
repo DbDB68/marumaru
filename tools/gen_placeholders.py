@@ -128,6 +128,66 @@ for r, facing in enumerate(ROWS):
         hsheet.paste(draw_hasebe(facing, c), (c * FW, r * FH))
 hsheet.save(OUT / "hasebe.png")
 
+# ---------- 不动行光（占位）：绀蓝短发、灰蓝军装，腰侧挂酒葫芦 ----------
+F_HAIR = (46, 46, 72, 255)       # 绀蓝发
+F_HAIR_D = (34, 34, 56, 255)
+F_CLOTH = (70, 74, 98, 255)      # 灰蓝上衣
+F_CLOTH_D = (56, 60, 82, 255)
+F_TRIM = (220, 222, 228, 255)    # 白领口/袖线
+F_PANTS = (40, 42, 58, 255)
+F_GOURD = (150, 96, 44, 255)     # 酒葫芦
+F_GOURD_D = (118, 72, 32, 255)
+
+
+def draw_fudou(facing: str, step: int) -> Image.Image:
+    img = Image.new("RGBA", (FW, FH), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    bob = 1 if step == 1 else 0
+    top = 1 + bob
+    # 头发（蓬松短碎盖）
+    d.rectangle([3, top, 12, top + 4], fill=F_HAIR)
+    d.rectangle([3, top + 4, 4, top + 8], fill=F_HAIR)
+    d.rectangle([11, top + 4, 12, top + 8], fill=F_HAIR)
+    d.point([(4, top + 9), (11, top + 9)], fill=F_HAIR)  # 鬓角碎发
+    # 脸
+    d.rectangle([5, top + 6, 10, top + 10], fill=SKIN)
+    # 身体
+    d.rectangle([4, top + 12, 11, top + 18], fill=F_CLOTH)
+    d.line([(5, top + 12), (10, top + 12)], fill=F_TRIM)  # 白领口
+    d.line([(7, top + 13), (7, top + 18)], fill=F_CLOTH_D)  # 前襟
+    # 腰侧酒葫芦（左右镜像）
+    gx = 2 if facing != "right" else 12
+    d.rectangle([gx, top + 15, gx + 1, top + 17], fill=F_GOURD)
+    d.point([(gx, top + 14)], fill=F_GOURD_D)
+    # 腿（交替迈步）
+    if step == 0:
+        d.rectangle([5, top + 19, 6, top + 21], fill=F_PANTS)
+        d.rectangle([9, top + 19, 10, top + 20], fill=F_PANTS)
+    else:
+        d.rectangle([5, top + 19, 6, top + 20], fill=F_PANTS)
+        d.rectangle([9, top + 19, 10, top + 21], fill=F_PANTS)
+    if facing == "down":
+        d.rectangle([5, top + 3, 10, top + 5], fill=F_HAIR)  # 刘海
+        d.point([(5, top + 8), (10, top + 8)], fill=DARK)
+    elif facing == "up":
+        d.rectangle([3, top, 12, top + 9], fill=F_HAIR)
+        d.rectangle([3, top + 7, 12, top + 8], fill=F_HAIR_D)  # 后发暗面
+        d.rectangle([5, top + 10, 10, top + 10], fill=SKIN)  # 后颈
+    elif facing == "left":
+        d.rectangle([5, top + 3, 10, top + 4], fill=F_HAIR)
+        d.point([(5, top + 8)], fill=DARK)
+    else:  # right
+        d.rectangle([5, top + 3, 10, top + 4], fill=F_HAIR)
+        d.point([(10, top + 8)], fill=DARK)
+    return img
+
+
+fsheet = Image.new("RGBA", (FW * 2, FH * 4), (0, 0, 0, 0))
+for r, facing in enumerate(ROWS):
+    for c in range(2):
+        fsheet.paste(draw_fudou(facing, c), (c * FW, r * FH))
+fsheet.save(OUT / "fudou.png")
+
 # ---------- 木地板：16x16 可平铺 ----------
 T = 16
 floor = Image.new("RGBA", (T, T))
@@ -205,4 +265,4 @@ d.line([(20, 4), (20, 15)], fill=BLANKET_D)
 d.line([(26, 4), (26, 15)], fill=BLANKET_D)
 futon.save(OUT / "futon.png")
 
-print("done: assets/sprites/player.png, hasebe.png, floor.png, grass.png, tree.png, futon.png")
+print("done: assets/sprites/player.png, hasebe.png, fudou.png, floor.png, grass.png, tree.png, futon.png")
