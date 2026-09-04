@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="Texture2D" path="res://assets/sprites/grass.png" id="2_grass"]
+[ext_resource type="Texture2D" path="res://assets/sprites/soil.png" id="3_soil"]
+[ext_resource type="PackedScene" path="res://scenes/dialog_box.tscn" id="4_dialog"]
+[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="5_door"]
+[ext_resource type="Script" path="res://scripts/room.gd" id="6_room"]
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_h"]
+size = Vector2(960, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_wall_v"]
+size = Vector2(16, 540)
+
+[sub_resource type="RectangleShape2D" id="Shape_scarecrow"]
+size = Vector2(16, 48)
+
+[sub_resource type="CircleShape2D" id="Shape_bucket"]
+radius = 14.0
+
+[node name="Field" type="Node2D"]
+script = ExtResource("6_room")
+room_id = "field"
+
+[node name="Floor" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_grass")
+stretch_mode = 1
+
+[node name="FurrowA" type="TextureRect" parent="."]
+z_index = -9
+offset_left = 200.0
+offset_top = 180.0
+offset_right = 760.0
+offset_bottom = 244.0
+texture = ExtResource("3_soil")
+stretch_mode = 1
+
+[node name="FurrowB" type="TextureRect" parent="."]
+z_index = -9
+offset_left = 200.0
+offset_top = 290.0
+offset_right = 760.0
+offset_bottom = 354.0
+texture = ExtResource("3_soil")
+stretch_mode = 1
+
+[node name="FurrowC" type="TextureRect" parent="."]
+z_index = -9
+offset_left = 200.0
+offset_top = 400.0
+offset_right = 760.0
+offset_bottom = 464.0
+texture = ExtResource("3_soil")
+stretch_mode = 1
+
+[node name="SproutsA" type="Polygon2D" parent="."]
+position = Vector2(480, 212)
+color = Color(0.45, 0.68, 0.32, 1)
+polygon = PackedVector2Array(-240, 0, -236, -6, -232, 0, -160, 0, -156, -6, -152, 0, -80, 0, -76, -6, -72, 0, 0, 0, 4, -6, 8, 0, 80, 0, 84, -6, 88, 0, 160, 0, 164, -6, 168, 0, 232, 0, 236, -6, 240, 0)
+
+[node name="SproutsB" type="Polygon2D" parent="."]
+position = Vector2(480, 322)
+color = Color(0.45, 0.68, 0.32, 1)
+polygon = PackedVector2Array(-240, 0, -236, -6, -232, 0, -160, 0, -156, -6, -152, 0, -80, 0, -76, -6, -72, 0, 0, 0, 4, -6, 8, 0, 80, 0, 84, -6, 88, 0, 160, 0, 164, -6, 168, 0, 232, 0, 236, -6, 240, 0)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(480, -8)
+shape = SubResource("Shape_wall_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(480, 548)
+shape = SubResource("Shape_wall_h")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-8, 270)
+shape = SubResource("Shape_wall_v")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(968, 270)
+shape = SubResource("Shape_wall_v")
+
+[node name="Scarecrow" type="StaticBody2D" parent="."]
+position = Vector2(140, 300)
+
+[node name="Shape" type="CollisionShape2D" parent="Scarecrow"]
+shape = SubResource("Shape_scarecrow")
+
+[node name="Pole" type="ColorRect" parent="Scarecrow"]
+offset_left = -3.0
+offset_top = -24.0
+offset_right = 3.0
+offset_bottom = 24.0
+color = Color(0.5, 0.38, 0.24, 1)
+
+[node name="Arms" type="ColorRect" parent="Scarecrow"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = -10.0
+color = Color(0.5, 0.38, 0.24, 1)
+
+[node name="Hat" type="Polygon2D" parent="Scarecrow"]
+position = Vector2(0, -26)
+color = Color(0.78, 0.68, 0.4, 1)
+polygon = PackedVector2Array(-12, 4, 0, -6, 12, 4)
+
+[node name="Bucket" type="StaticBody2D" parent="."]
+position = Vector2(840, 480)
+
+[node name="Visual" type="Polygon2D" parent="Bucket"]
+color = Color(0.5, 0.42, 0.3, 1)
+polygon = PackedVector2Array(14, 0, 12, 7, 7, 12, 0, 14, -7, 12, -12, 7, -14, 0, -12, -7, -7, -12, 0, -14, 7, -12, 12, -7)
+
+[node name="Shape" type="CollisionShape2D" parent="Bucket"]
+shape = SubResource("Shape_bucket")
+
+[node name="DoorToCourtyard" parent="." instance=ExtResource("5_door")]
+position = Vector2(480, 16)
+target_room = "res://scenes/courtyard.tscn"
+target_spawn = "FromField"
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="FromCourtyard" type="Marker2D" parent="Spawns"]
+position = Vector2(480, 80)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(480, 80)
+
+[node name="DialogBox" parent="." instance=ExtResource("4_dialog")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 340.0
+offset_right = 360.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.75)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "田地 · 往上回庭院"

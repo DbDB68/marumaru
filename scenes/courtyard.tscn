@@ -74,10 +74,18 @@ position = Vector2(480, 16)
 target_room = "res://scenes/main.tscn"
 target_spawn = "FromCourtyard"
 
+[node name="DoorToField" parent="." instance=ExtResource("4_door")]
+position = Vector2(480, 524)
+target_room = "res://scenes/field.tscn"
+target_spawn = "FromCourtyard"
+
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="FromMain" type="Marker2D" parent="Spawns"]
 position = Vector2(480, 80)
+
+[node name="FromField" type="Marker2D" parent="Spawns"]
+position = Vector2(480, 480)
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(480, 80)
@@ -96,4 +104,4 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 12
-text = "WASD / 方向键 走来走去 · 往上走回本丸"
+text = "WASD / 方向键 走来走去 · 往上回本丸 · 往下到田地"

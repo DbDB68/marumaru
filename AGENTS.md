@@ -19,6 +19,8 @@ godot --headless --path D:\Dev\marumaru --script res://tools/test_schedule.gd
 godot --headless --path D:\Dev\marumaru --script res://tools/test_expedition.gd
 # 双人小剧场数据
 godot --headless --path D:\Dev\marumaru --script res://tools/test_banter.gd
+# 地图连通性（日程房间↔场景、门↔目标出生点、坐标范围）
+godot --headless --path D:\Dev\marumaru res://tools/test_map.tscn
 # 场景切换（按现实时刻断言 NPC 位置，注意当前时刻对应的日程）
 godot --headless --path D:\Dev\marumaru res://tools/test_switch.tscn
 # 小剧场实况冒烟（生成两位刀男摆一起，应触发搭话）
@@ -27,7 +29,7 @@ godot --headless --path D:\Dev\marumaru res://tools/test_banter_live.tscn
 
 ## 结构
 
-- `scenes/` 场景：`main.tscn`（主屋）、`courtyard.tscn`（庭院）、`npcs/<id>.tscn`（刀男）、`door.tscn`、`dialog_box.tscn`、`expedition_panel.tscn`
+- `scenes/` 场景：`main.tscn`（主屋，中枢：左右通厨房/缘侧、下通庭院）、`courtyard.tscn`（庭院：下通田地）、`kitchen.tscn`（厨房）、`engawa.tscn`（缘侧：右通手合场）、`dojo.tscn`（手合场）、`field.tscn`（田地）、`npcs/<id>.tscn`（刀男）、`door.tscn`、`dialog_box.tscn`、`expedition_panel.tscn`
 - `scripts/`：`game.gd`（Autoload Game，切场景+时钟）、`expedition.gd`（Autoload Expedition）、`schedule.gd`（class_name Schedule，读日程 JSON）、`banter.gd`（双刀小剧场，room.gd 每房间实例化）、`npc.gd`、`player.gd`、`room.gd`、`door.gd`、`dialog_box.gd`
 - `data/schedules.json` 刀男日程：from/activity/room(main|courtyard)/pos/mode(wander|stay)/lines，用户可手改
 - `data/interactions.json` 双人小剧场对白：键为字典序 `id1+id2`，值是若干段 `[{who, text}, ...]`

@@ -265,4 +265,37 @@ d.line([(20, 4), (20, 15)], fill=BLANKET_D)
 d.line([(26, 4), (26, 15)], fill=BLANKET_D)
 futon.save(OUT / "futon.png")
 
-print("done: assets/sprites/player.png, hasebe.png, fudou.png, floor.png, grass.png, tree.png, futon.png")
+# ---------- 榻榻米：16x16 可平铺（手合场） ----------
+tatami = Image.new("RGBA", (T, T))
+d = ImageDraw.Draw(tatami)
+STRAW = [(198, 190, 138, 255), (192, 184, 130, 255), (204, 196, 146, 255)]
+EDGE = (150, 140, 92, 255)
+for y in range(T):
+    for x in range(T):
+        shade = ((x * 11 + y * 5) % 5) - 2
+        c = STRAW[(x // 4 + y // 4) % 3]
+        tatami.putpixel((x, y), (c[0] + shade, c[1] + shade, c[2] + shade, 255))
+d.line([(0, 0), (T - 1, 0)], fill=EDGE)          # 席边
+d.line([(0, T - 1), (T - 1, T - 1)], fill=EDGE)
+d.line([(0, 0), (0, T - 1)], fill=EDGE)
+d.line([(T - 1, 0), (T - 1, T - 1)], fill=EDGE)
+d.line([(0, 8), (T - 1, 8)], fill=(172, 162, 112, 255))  # 中段织纹
+tatami.save(OUT / "tatami.png")
+
+# ---------- 田垄土：16x16 可平铺（田地） ----------
+soil = Image.new("RGBA", (T, T))
+d = ImageDraw.Draw(soil)
+SOIL = [(122, 86, 58, 255), (114, 79, 52, 255), (130, 93, 64, 255)]
+for y in range(T):
+    for x in range(T):
+        shade = ((x * 7 + y * 17) % 7) - 3
+        c = SOIL[(x * 3 + y * 5) % 3]
+        soil.putpixel((x, y), (c[0] + shade, c[1] + shade, c[2] + shade, 255))
+for y in range(2, T, 4):  # 垄沟
+    d.line([(0, y), (T - 1, y)], fill=(88, 60, 40, 255))
+for i in range(6):  # 土块疙瘩
+    x, y = (i * 41 + 3) % T, (i * 29 + 5) % T
+    soil.putpixel((x, y), (96, 66, 44, 255))
+soil.save(OUT / "soil.png")
+
+print("done: assets/sprites/player.png, hasebe.png, fudou.png, floor.png, grass.png, tree.png, futon.png, tatami.png, soil.png")

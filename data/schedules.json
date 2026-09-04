@@ -3,7 +3,7 @@
     {
       "from": "06:00",
       "activity": "晨练",
-      "room": "courtyard",
+      "room": "dojo",
       "pos": [480, 300],
       "mode": "wander",
       "lines": ["晨练不可懈怠。", "呼……出身汗，痛快。"]
@@ -31,6 +31,14 @@
       "pos": [600, 200],
       "mode": "wander",
       "lines": ["巡逻中。……没有异常。", "庭院的花开得正好。"]
+    },
+    {
+      "from": "15:00",
+      "activity": "备晚饭",
+      "room": "kitchen",
+      "pos": [480, 220],
+      "mode": "wander",
+      "lines": ["晚饭的食材，我来处理。", "主有什么想吃的吗？"]
     },
     {
       "from": "18:00",
@@ -67,6 +75,14 @@
       "lines": ["唔……再让我睡一会儿……", "天亮了吗……？"]
     },
     {
+      "from": "09:00",
+      "activity": "畑当番",
+      "room": "field",
+      "pos": [480, 320],
+      "mode": "wander",
+      "lines": ["泥土的味道……也不坏。", "种点什么好呢……"]
+    },
+    {
       "from": "12:00",
       "activity": "午饭",
       "room": "main",
@@ -85,8 +101,8 @@
     {
       "from": "17:00",
       "activity": "独酌",
-      "room": "main",
-      "pos": [700, 320],
+      "room": "engawa",
+      "pos": [480, 270],
       "mode": "stay",
       "lines": ["酒……只剩一点了。", "信长公……不，没什么。"]
     },

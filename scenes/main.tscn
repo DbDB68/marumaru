@@ -102,10 +102,26 @@ position = Vector2(480, 524)
 target_room = "res://scenes/courtyard.tscn"
 target_spawn = "FromMain"
 
+[node name="DoorToKitchen" parent="." instance=ExtResource("5_door")]
+position = Vector2(16, 270)
+target_room = "res://scenes/kitchen.tscn"
+target_spawn = "FromMain"
+
+[node name="DoorToEngawa" parent="." instance=ExtResource("5_door")]
+position = Vector2(944, 270)
+target_room = "res://scenes/engawa.tscn"
+target_spawn = "FromMain"
+
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="FromCourtyard" type="Marker2D" parent="Spawns"]
 position = Vector2(480, 480)
+
+[node name="FromKitchen" type="Marker2D" parent="Spawns"]
+position = Vector2(80, 270)
+
+[node name="FromEngawa" type="Marker2D" parent="Spawns"]
+position = Vector2(880, 270)
 
 [node name="DialogBox" parent="." instance=ExtResource("4_dialog")]
 
@@ -121,4 +137,4 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 12
-text = "WASD / 方向键 走来走去 · Z 搭话 · E 远征 · Esc 关对话"
+text = "WASD / 方向键 走来走去 · Z 搭话 · E 远征 · Esc 关对话 · 左右通厨房/缘侧"
