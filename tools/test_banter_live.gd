@@ -21,6 +21,12 @@ func _run() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	await get_tree().create_timer(0.5).timeout
 
+	# 清掉按日程生成的刀男：深夜时段日程会把 hasebe/fudou 生成在主屋，
+	# banter 按组搜索会先逮到他们（站位不满足距离），测试就变成看时辰碰运气了
+	for n in get_tree().get_nodes_in_group("npcs"):
+		n.queue_free()
+	await get_tree().process_frame
+
 	# 不依赖当前时刻的日程：直接把两位生成出来摆到一起钉住
 	var a: Node2D = load("res://scenes/npcs/hasebe.tscn").instantiate()
 	a.npc_id = "hasebe"
