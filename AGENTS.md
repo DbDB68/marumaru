@@ -1,28 +1,28 @@
 # marumaru 仓库协作备忘
 
 本丸同人陪伴小游戏（刀剑乱舞），Godot 4.7.2 + GDScript，像素风。
-项目在 `E:\marumaru`，GitHub 私仓 `DbDB68/marumaru`（分支 master）。
+项目在 `D:\Dev\marumaru`，GitHub 私仓 `DbDB68/marumaru`（分支 master）。
 
 ## 跑法
 
-- 编辑器：`D:\Godot\Godot_v4.7.2-stable_win64.exe`，导入 `E:\marumaru\project.godot`，F5 运行
-- 无头验证：`D:\Godot\Godot_v4.7.2-stable_win64_console.exe --headless --path E:\marumaru --quit-after 60`
+- 编辑器：`D:\Godot\Godot_v4.7.2-stable_win64.exe`，导入 `D:\Dev\marumaru\project.godot`，F5 运行
+- 无头验证：`D:\Godot\Godot_v4.7.2-stable_win64_console.exe --headless --path D:\Dev\marumaru --quit-after 60`
 
 ## 回归测试（改动后必须跑）
 
 ```
 # 对话系统
-godot --headless --path E:\marumaru --script res://tools/test_dialog.gd
+godot --headless --path D:\Dev\marumaru --script res://tools/test_dialog.gd
 # 日程表
-godot --headless --path E:\marumaru --script res://tools/test_schedule.gd
+godot --headless --path D:\Dev\marumaru --script res://tools/test_schedule.gd
 # 远征番茄钟
-godot --headless --path E:\marumaru --script res://tools/test_expedition.gd
+godot --headless --path D:\Dev\marumaru --script res://tools/test_expedition.gd
 # 双人小剧场数据
-godot --headless --path E:\marumaru --script res://tools/test_banter.gd
+godot --headless --path D:\Dev\marumaru --script res://tools/test_banter.gd
 # 场景切换（按现实时刻断言 NPC 位置，注意当前时刻对应的日程）
-godot --headless --path E:\marumaru res://tools/test_switch.tscn
+godot --headless --path D:\Dev\marumaru res://tools/test_switch.tscn
 # 小剧场实况冒烟（生成两位刀男摆一起，应触发搭话）
-godot --headless --path E:\marumaru res://tools/test_banter_live.tscn
+godot --headless --path D:\Dev\marumaru res://tools/test_banter_live.tscn
 ```
 
 ## 结构
