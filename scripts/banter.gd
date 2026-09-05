@@ -103,6 +103,8 @@ func _try_start() -> void:
 		var b := _find_npc(ids[1])
 		if a == null or b == null:
 			continue
+		if a.is_being_called() or b.is_being_called() or a._returning or b._returning:
+			continue
 		if a.global_position.distance_to(b.global_position) > TRIGGER_DIST:
 			continue
 		var scripts: Array = _pairs[key]

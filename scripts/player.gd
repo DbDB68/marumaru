@@ -4,12 +4,58 @@ extends CharacterBody2D
 
 const SPEED := 90.0
 const INTERACT_RANGE := 48.0
+const CALL_RANGE := 200.0
+var _call_hint: Label
+var _hint_left := 0.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
 	add_to_group("player")
+	var layer := CanvasLayer.new()
+	add_child(layer)
+	_call_hint = Label.new()
+	_call_hint.position = Vector2(8, 34)
+	_call_hint.add_theme_font_size_override("font_size", 12)
+	_call_hint.add_theme_color_override("font_shadow_color", Color.BLACK)
+	_call_hint.add_theme_constant_override("shadow_offset_x", 1)
+	_call_hint.add_theme_constant_override("shadow_offset_y", 1)
+	layer.add_child(_call_hint)
+	show_call_hint("C 招呼附近的刀男过来")
+
+
+func show_call_hint(text: String) -> void:
+	_call_hint.text = text
+	_hint_left = 3.0
+
+
+func _process(delta: float) -> void:
+	_hint_left -= delta
+	_call_hint.visible = _hint_left > 0.0
+
+
+func call_nearby() -> void:
+	if _ui_busy():
+		return
+	var nearest: Node2D = null
+	var distance := CALL_RANGE
+	for npc in get_tree().get_nodes_in_group("npcs"):
+		if npc.is_being_called():
+			show_call_hint("他已经在过来啦，稍等一下")
+			return
+		if npc._leaving or npc._bantering:
+			continue
+		var d := global_position.distance_to(npc.global_position)
+		if d < distance:
+			distance = d
+			nearest = npc
+	if nearest == null:
+		show_call_hint("附近暂时没有空闲的刀男，靠近些再喊吧")
+	elif nearest.answer_call(self):
+		show_call_hint("听见啦，正在过来")
+	else:
+		show_call_hint("中间有东西挡着，走近一些再招呼吧")
 
 
 func _physics_process(_delta: float) -> void:
@@ -27,6 +73,10 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	# 忽略按住不放时的键盘连发，否则开关对话会疯狂切换
 	if event is InputEventKey and event.is_echo():
+		return
+	if event.is_action_pressed("call_npc"):
+		call_nearby()
+		get_viewport().set_input_as_handled()
 		return
 	if event.is_action_pressed("interact") and not _ui_busy():
 		var npc := _nearest_npc()

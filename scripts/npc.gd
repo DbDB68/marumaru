@@ -30,6 +30,59 @@ var _mode := "wander"
 var _schedule_check_left := SCHEDULE_CHECK_INTERVAL
 var _leaving := false
 var _bantering := false  # 小剧场（banter.gd）搭话中：立正站好
+var _call_player: Node2D
+var _call_left := 0.0
+var _returning := false
+
+
+func is_being_called() -> bool:
+	return is_instance_valid(_call_player)
+
+
+func answer_call(player: Node2D) -> bool:
+	if _leaving or _bantering or is_being_called():
+		return false
+	# Sweep the real body shape: do not promise a route through water or walls.
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = $CollisionShape2D.shape
+	query.transform = $CollisionShape2D.global_transform
+	query.motion = player.global_position - global_position
+	query.exclude = [get_rid(), player.get_rid()]
+	var travel := get_world_2d().direct_space_state.cast_motion(query)
+	if travel[0] < 0.99:
+		return false
+	_call_player = player
+	_call_left = 8.0
+	_returning = false
+	_stuck = 0.0
+	return true
+
+
+func _finish_call() -> void:
+	_call_player = null
+	_target = _home
+	_returning = true
+	_walking = true
+	_stuck = 0.0
+
+
+func _approach_player(delta: float) -> void:
+	_call_left -= delta
+	var distance := global_position.distance_to(_call_player.global_position)
+	if distance <= 34.0:
+		face_toward(_call_player.global_position)
+		var dialog := get_tree().get_first_node_in_group("dialog_box")
+		if dialog != null:
+			dialog.open(["长谷部：主，有何吩咐？" if npc_id == "hasebe" else "不动：嗯……主叫我？"])
+		_finish_call()
+		velocity = Vector2.ZERO
+		return
+	if _call_left <= 0.0 or distance > 240.0:
+		_call_player.show_call_hint("没能走到你身边，靠近一些再喊吧")
+		_finish_call()
+		return
+	_target = _call_player.global_position
+	_walk_step(delta)
 
 
 func _ready() -> void:
@@ -41,7 +94,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if _leaving:
 		return
-	if _bantering or _dialog_open():
+	var panel := get_tree().get_first_node_in_group("expedition_panel")
+	if _bantering or _dialog_open() or (panel != null and panel.is_open()):
 		# 搭话/小剧场时立正
 		velocity = Vector2.ZERO
 		sprite.pause()
@@ -50,6 +104,16 @@ func _physics_process(delta: float) -> void:
 	if _schedule_check_left <= 0.0:
 		_schedule_check_left = SCHEDULE_CHECK_INTERVAL
 		_check_schedule()
+	if _leaving:
+		return
+	if is_being_called():
+		_approach_player(delta)
+		return
+	if _returning:
+		_walk_step(delta)
+		if not _walking:
+			_returning = false
+		return
 	if _mode == "stay":
 		velocity = Vector2.ZERO
 		return
@@ -64,6 +128,8 @@ func _physics_process(delta: float) -> void:
 
 ## 应用日程槽；teleport 为 true 时直接摆到位（出生用），否则走过去
 func _apply_slot(slot: Dictionary, teleport := false) -> void:
+	_call_player = null
+	_returning = false
 	_slot = slot
 	if slot.is_empty():
 		_home = global_position
@@ -94,6 +160,7 @@ func _check_schedule() -> void:
 
 ## 换房间：淡出消失（目标房间加载时房间脚本会按日程重新生成他）
 func _leave_room() -> void:
+	_call_player = null
 	_leaving = true
 	velocity = Vector2.ZERO
 	var t := create_tween()
