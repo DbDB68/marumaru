@@ -114,7 +114,7 @@ shape = SubResource("Shape_jar")
 
 [node name="DoorToMain" parent="." instance=ExtResource("5_door")]
 position = Vector2(944, 270)
-target_room = "res://scenes/main.tscn"
+target_room = "res://scenes/courtyard.tscn"
 target_spawn = "FromKitchen"
 
 [node name="Spawns" type="Node2D" parent="."]
@@ -139,4 +139,4 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 12
-text = "厨房 · 往右回主屋"
+text = "厨房 · 往右到庭院"

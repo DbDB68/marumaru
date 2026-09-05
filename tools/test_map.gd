@@ -2,7 +2,7 @@ extends Node
 ## 地图连通性 lint：
 ## 1) 日程表用到的房间都有对应场景（scenes/<room>.tscn）且 room_id 对得上
 ## 2) 每个房间场景里的门：目标场景存在、目标出生点在目标场景 Spawns/ 下
-## 3) 日程坐标都在房间范围内（0..960, 0..540）
+## 3) 日程坐标都在房间范围内（各房间 room_size）
 ## 用法：godot --headless --path <项目> res://tools/test_map.tscn
 ## 注意：本节点会把自己挪到场景树根下，免得换场景时被一起释放
 
@@ -30,8 +30,11 @@ func _run() -> void:
 			var r := str(e.get("room", ""))
 			if not r.is_empty():
 				rooms[r] = true
+			var scene: Node = load("res://scenes/%s.tscn" % r).instantiate()
+			var bounds: Vector2 = scene.room_size
+			scene.free()
 			var pos: Array = e.get("pos", [])
-			var in_bounds: bool = pos.size() == 2 and pos[0] >= 0 and pos[0] <= 960 and pos[1] >= 0 and pos[1] <= 540
+			var in_bounds: bool = pos.size() == 2 and pos[0] >= 0 and pos[0] <= bounds.x and pos[1] >= 0 and pos[1] <= bounds.y
 			_check(in_bounds, "%s 槽位 %s 坐标应在房间范围内" % [id, e.get("from", "?")])
 	for room in rooms.keys():
 		_check_room(room)

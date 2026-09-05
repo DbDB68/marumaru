@@ -78,7 +78,7 @@ polygon = PackedVector2Array(-8, -4, -4, -4, -4, 0, -8, 0, 4, 4, 8, 4, 8, 8, 4, 
 
 [node name="DoorToMain" parent="." instance=ExtResource("5_door")]
 position = Vector2(16, 270)
-target_room = "res://scenes/main.tscn"
+target_room = "res://scenes/courtyard.tscn"
 target_spawn = "FromEngawa"
 
 [node name="DoorToDojo" parent="." instance=ExtResource("5_door")]
@@ -111,4 +111,4 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 12
-text = "缘侧 · 往左回主屋 · 往右去手合场"
+text = "缘侧 · 往左到庭院 · 往右去手合场"

@@ -38,7 +38,7 @@ func _run() -> void:
 	var cur := get_tree().current_scene
 	_check(cur != null and cur.name == "Courtyard", "踩门后应切换到庭院 (当前: %s)" % (cur.name if cur else "null"))
 	var p2 := get_tree().get_first_node_in_group("player")
-	_check(p2 != null and p2.global_position.distance_to(Vector2(480, 80)) < 1.0,
+	_check(p2 != null and p2.global_position.distance_to(cur.get_node("Spawns/FromMain").global_position) < 1.0,
 		"切换后主角应在庭院出生点 (实际: %s)" % (p2.global_position if p2 else "null"))
 
 	# 庭院侧的日程生成检查
@@ -51,7 +51,7 @@ func _run() -> void:
 			_check(npc2 == null, "%s 日程=%s(%s) 在 %s，不应出现在庭院" % [id, slot2.get("activity"), slot2.get("from"), slot2.get("room")])
 
 	# 再踩庭院的门回主屋
-	p2.global_position = Vector2(480, 16)
+	p2.global_position = cur.get_node("DoorToMain").global_position
 	await get_tree().create_timer(1.5).timeout
 	cur = get_tree().current_scene
 	_check(cur != null and cur.name == "Main", "踩庭院的门应回到主屋 (当前: %s)" % (cur.name if cur else "null"))
@@ -60,7 +60,7 @@ func _run() -> void:
 		"回来后主角应在主屋出生点 (实际: %s)" % (p3.global_position if p3 else "null"))
 
 	print("SWITCH TEST: done")
-	get_tree().quit()
+	get_tree().quit(1 if _failures > 0 else 0)
 
 
 var _failures := 0

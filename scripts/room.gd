@@ -5,12 +5,20 @@ extends Node2D
 ## 3) 监听远征出发/归来，刀男实时离场/回场
 
 @export var room_id := ""
+@export var room_size := Vector2(960, 540)
 
 const Banter := preload("res://scripts/banter.gd")
 
 
 func _ready() -> void:
 	_place_player()
+	var camera := get_node_or_null("Player/Camera2D") as Camera2D
+	if camera != null:
+		camera.limit_right = int(room_size.x)
+		camera.limit_bottom = int(room_size.y)
+		if room_id == "courtyard":
+			camera.zoom = Vector2(1.5, 1.5)
+		camera.reset_smoothing()
 	_spawn_npcs()
 	add_child(Banter.new())
 	Expedition.started.connect(_on_expedition_started)
