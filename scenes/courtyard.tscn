@@ -2569,9 +2569,15 @@ z_index = -5
 
 
 [node name="CollisionPolygon2D491" type="CollisionPolygon2D" parent="StaticBody2D490"]
-polygon = PackedVector2Array(724, 460, 755, 440, 786, 450, 800, 485, 793, 515, 808, 540, 794, 584, 769, 601, 732, 580, 718, 540, 725, 510, 710, 485)
+polygon = PackedVector2Array(724, 460, 755, 440, 786, 450, 800, 485, 793, 515, 797.5, 522.5, 737.1, 582.9, 732, 580, 718, 540, 725, 510, 710, 485)
 
-[node name="Line2D492" type="Line2D" parent="."]
+[node name="StaticBody2D492" type="StaticBody2D" parent="."]
+
+
+[node name="CollisionPolygon2D493" type="CollisionPolygon2D" parent="StaticBody2D492"]
+polygon = PackedVector2Array()
+
+[node name="Line2D494" type="Line2D" parent="."]
 points = PackedVector2Array(795, 585, 805, 620, 820, 655, 850, 666, 885, 649, 922, 650, 958, 665, 995, 658, 1030, 644, 1094, 659, 1135, 670, 1175, 665, 1270, 665)
 width = 18
 default_color = Color(0.5019607843137255, 0.6823529411764706, 0.7215686274509804, 1)
@@ -2580,90 +2586,90 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -4
 
-[node name="StaticBody2D493" type="StaticBody2D" parent="."]
-
-
-[node name="CollisionPolygon2D494" type="CollisionPolygon2D" parent="StaticBody2D493"]
-polygon = PackedVector2Array(786.35, 587.47, 796.35, 622.47, 813.65, 617.53, 803.65, 582.53)
-
 [node name="StaticBody2D495" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D496" type="CollisionPolygon2D" parent="StaticBody2D495"]
-polygon = PackedVector2Array(796.73, 623.55, 811.73, 658.55, 828.27, 651.45, 813.27, 616.45)
+polygon = PackedVector2Array(786.35, 587.47, 796.35, 622.47, 813.65, 617.53, 803.65, 582.53)
 
 [node name="StaticBody2D497" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D498" type="CollisionPolygon2D" parent="StaticBody2D497"]
-polygon = PackedVector2Array(816.9, 663.45, 846.9, 674.45, 853.1, 657.55, 823.1, 646.55)
+polygon = PackedVector2Array(796.73, 623.55, 811.73, 658.55, 828.27, 651.45, 813.27, 616.45)
 
 [node name="StaticBody2D499" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D500" type="CollisionPolygon2D" parent="StaticBody2D499"]
-polygon = PackedVector2Array(853.93, 674.1, 888.93, 657.1, 881.07, 640.9, 846.07, 657.9)
+polygon = PackedVector2Array(816.9, 663.45, 846.9, 674.45, 853.1, 657.55, 823.1, 646.55)
 
 [node name="StaticBody2D501" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D502" type="CollisionPolygon2D" parent="StaticBody2D501"]
-polygon = PackedVector2Array(884.76, 658.0, 921.76, 659.0, 922.24, 641.0, 885.24, 640.0)
+polygon = PackedVector2Array(853.93, 674.1, 888.93, 657.1, 881.07, 640.9, 846.07, 657.9)
 
 [node name="StaticBody2D503" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D504" type="CollisionPolygon2D" parent="StaticBody2D503"]
-polygon = PackedVector2Array(918.54, 658.31, 954.54, 673.31, 961.46, 656.69, 925.46, 641.69)
+polygon = PackedVector2Array(884.76, 658.0, 921.76, 659.0, 922.24, 641.0, 885.24, 640.0)
 
 [node name="StaticBody2D505" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D506" type="CollisionPolygon2D" parent="StaticBody2D505"]
-polygon = PackedVector2Array(959.67, 673.84, 996.67, 666.84, 993.33, 649.16, 956.33, 656.16)
+polygon = PackedVector2Array(918.54, 658.31, 954.54, 673.31, 961.46, 656.69, 925.46, 641.69)
 
 [node name="StaticBody2D507" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D508" type="CollisionPolygon2D" parent="StaticBody2D507"]
-polygon = PackedVector2Array(998.34, 666.36, 1033.34, 652.36, 1026.66, 635.64, 991.66, 649.64)
+polygon = PackedVector2Array(959.67, 673.84, 996.67, 666.84, 993.33, 649.16, 956.33, 656.16)
 
 [node name="StaticBody2D509" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D510" type="CollisionPolygon2D" parent="StaticBody2D509"]
-polygon = PackedVector2Array(1027.95, 652.76, 1091.95, 667.76, 1096.05, 650.24, 1032.05, 635.24)
+polygon = PackedVector2Array(998.34, 666.36, 1033.34, 652.36, 1026.66, 635.64, 991.66, 649.64)
 
 [node name="StaticBody2D511" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D512" type="CollisionPolygon2D" parent="StaticBody2D511"]
-polygon = PackedVector2Array(1091.41, 667.62, 1101.41, 670.62, 1106.59, 653.38, 1096.59, 650.38)
+polygon = PackedVector2Array(1027.95, 652.76, 1091.95, 667.76, 1096.05, 650.24, 1032.05, 635.24)
 
 [node name="StaticBody2D513" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D514" type="CollisionPolygon2D" parent="StaticBody2D513"]
-polygon = PackedVector2Array(1128.23, 677.83, 1133.23, 678.83, 1136.77, 661.17, 1131.77, 660.17)
+polygon = PackedVector2Array(1091.41, 667.62, 1101.41, 670.62, 1106.59, 653.38, 1096.59, 650.38)
 
 [node name="StaticBody2D515" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D516" type="CollisionPolygon2D" parent="StaticBody2D515"]
-polygon = PackedVector2Array(1136.12, 678.93, 1176.12, 673.93, 1173.88, 656.07, 1133.88, 661.07)
+polygon = PackedVector2Array(1128.23, 677.83, 1133.23, 678.83, 1136.77, 661.17, 1131.77, 660.17)
 
 [node name="StaticBody2D517" type="StaticBody2D" parent="."]
 
 
 [node name="CollisionPolygon2D518" type="CollisionPolygon2D" parent="StaticBody2D517"]
+polygon = PackedVector2Array(1136.12, 678.93, 1176.12, 673.93, 1173.88, 656.07, 1133.88, 661.07)
+
+[node name="StaticBody2D519" type="StaticBody2D" parent="."]
+
+
+[node name="CollisionPolygon2D520" type="CollisionPolygon2D" parent="StaticBody2D519"]
 polygon = PackedVector2Array(1175.0, 674.0, 1270.0, 674.0, 1270.0, 656.0, 1175.0, 656.0)
 
-[node name="Polygon2D519" type="Polygon2D" parent="."]
+[node name="Polygon2D521" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1103, 647, 1131, 647, 1131, 686, 1103, 686)
 color = Color(0.7725490196078432, 0.611764705882353, 0.42745098039215684, 1)
 z_index = -5
 
-[node name="Line2D520" type="Line2D" parent="."]
+[node name="Line2D522" type="Line2D" parent="."]
 points = PackedVector2Array(1103, 650, 1131, 650)
 width = 2
 default_color = Color(0.5294117647058824, 0.42745098039215684, 0.3215686274509804, 1)
@@ -2672,7 +2678,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D521" type="Line2D" parent="."]
+[node name="Line2D523" type="Line2D" parent="."]
 points = PackedVector2Array(1103, 656, 1131, 656)
 width = 2
 default_color = Color(0.5294117647058824, 0.42745098039215684, 0.3215686274509804, 1)
@@ -2681,7 +2687,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D522" type="Line2D" parent="."]
+[node name="Line2D524" type="Line2D" parent="."]
 points = PackedVector2Array(1103, 662, 1131, 662)
 width = 2
 default_color = Color(0.5294117647058824, 0.42745098039215684, 0.3215686274509804, 1)
@@ -2690,7 +2696,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D523" type="Line2D" parent="."]
+[node name="Line2D525" type="Line2D" parent="."]
 points = PackedVector2Array(1103, 668, 1131, 668)
 width = 2
 default_color = Color(0.5294117647058824, 0.42745098039215684, 0.3215686274509804, 1)
@@ -2699,7 +2705,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D524" type="Line2D" parent="."]
+[node name="Line2D526" type="Line2D" parent="."]
 points = PackedVector2Array(1103, 674, 1131, 674)
 width = 2
 default_color = Color(0.5294117647058824, 0.42745098039215684, 0.3215686274509804, 1)
@@ -2708,7 +2714,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D525" type="Line2D" parent="."]
+[node name="Line2D527" type="Line2D" parent="."]
 points = PackedVector2Array(1103, 680, 1131, 680)
 width = 2
 default_color = Color(0.5294117647058824, 0.42745098039215684, 0.3215686274509804, 1)
@@ -2717,260 +2723,368 @@ begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D526" type="Line2D" parent="."]
-points = PackedVector2Array(792, 560, 817, 534)
-width = 20
+[node name="Line2D528" type="Line2D" parent="."]
+points = PackedVector2Array(745, 605, 840, 510)
+width = 46
 default_color = Color(0.6784313725490196, 0.5019607843137255, 0.36470588235294116, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -3
 
-[node name="Line2D527" type="Line2D" parent="."]
-points = PackedVector2Array(792, 560, 817, 534)
-width = 14
+[node name="Line2D529" type="Line2D" parent="."]
+points = PackedVector2Array(745, 605, 840, 510)
+width = 42
 default_color = Color(0.8862745098039215, 0.7411764705882353, 0.5372549019607843, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 z_index = -2
 
-[node name="Polygon2D528" type="Polygon2D" parent="."]
+[node name="Line2D530" type="Line2D" parent="."]
+points = PackedVector2Array(732, 592, 758, 618)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D531" type="Line2D" parent="."]
+points = PackedVector2Array(740, 584, 766, 610)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D532" type="Line2D" parent="."]
+points = PackedVector2Array(748, 576, 774, 602)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D533" type="Line2D" parent="."]
+points = PackedVector2Array(756, 568, 782, 594)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D534" type="Line2D" parent="."]
+points = PackedVector2Array(764, 560, 790, 586)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D535" type="Line2D" parent="."]
+points = PackedVector2Array(772, 552, 798, 578)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D536" type="Line2D" parent="."]
+points = PackedVector2Array(780, 544, 806, 570)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D537" type="Line2D" parent="."]
+points = PackedVector2Array(788, 536, 814, 562)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D538" type="Line2D" parent="."]
+points = PackedVector2Array(796, 528, 822, 554)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D539" type="Line2D" parent="."]
+points = PackedVector2Array(804, 520, 830, 546)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D540" type="Line2D" parent="."]
+points = PackedVector2Array(812, 512, 838, 538)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Line2D541" type="Line2D" parent="."]
+points = PackedVector2Array(820, 504, 846, 530)
+width = 2
+default_color = Color(0.596078431372549, 0.4549019607843137, 0.3254901960784314, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+z_index = -1
+
+[node name="Polygon2D542" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1025, 326, 1035, 326, 1035, 342, 1025, 342)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D529" type="StaticBody2D" parent="."]
+[node name="StaticBody2D543" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D530" type="CollisionPolygon2D" parent="StaticBody2D529"]
+[node name="CollisionPolygon2D544" type="CollisionPolygon2D" parent="StaticBody2D543"]
 polygon = PackedVector2Array(1025, 326, 1035, 326, 1035, 342, 1025, 342)
 
-[node name="Polygon2D531" type="Polygon2D" parent="."]
+[node name="Polygon2D545" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1070.0, 307.0, 1064.64, 323.0, 1050.0, 334.71, 1030.0, 339.0, 1010.0, 334.71, 995.36, 323.0, 990.0, 307.0, 995.36, 291.0, 1010.0, 279.29, 1030.0, 275.0, 1050.0, 279.29, 1064.64, 291.0)
 color = Color(0.8627450980392157, 0.6470588235294118, 0.6823529411764706, 1)
 z_index = 1
 
-[node name="Polygon2D532" type="Polygon2D" parent="."]
+[node name="Polygon2D546" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1005, 396, 1015, 396, 1015, 412, 1005, 412)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D533" type="StaticBody2D" parent="."]
+[node name="StaticBody2D547" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D534" type="CollisionPolygon2D" parent="StaticBody2D533"]
+[node name="CollisionPolygon2D548" type="CollisionPolygon2D" parent="StaticBody2D547"]
 polygon = PackedVector2Array(1005, 396, 1015, 396, 1015, 412, 1005, 412)
 
-[node name="Polygon2D535" type="Polygon2D" parent="."]
+[node name="Polygon2D549" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1052.0, 377.0, 1046.37, 393.8, 1031.0, 406.1, 1010.0, 410.6, 989.0, 406.1, 973.63, 393.8, 968.0, 377.0, 973.63, 360.2, 989.0, 347.9, 1010.0, 343.4, 1031.0, 347.9, 1046.37, 360.2)
 color = Color(0.8627450980392157, 0.6470588235294118, 0.6823529411764706, 1)
 z_index = 1
 
-[node name="Polygon2D536" type="Polygon2D" parent="."]
+[node name="Polygon2D550" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1070, 406, 1080, 406, 1080, 422, 1070, 422)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D537" type="StaticBody2D" parent="."]
+[node name="StaticBody2D551" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D538" type="CollisionPolygon2D" parent="StaticBody2D537"]
+[node name="CollisionPolygon2D552" type="CollisionPolygon2D" parent="StaticBody2D551"]
 polygon = PackedVector2Array(1070, 406, 1080, 406, 1080, 422, 1070, 422)
 
-[node name="Polygon2D539" type="Polygon2D" parent="."]
+[node name="Polygon2D553" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1095.0, 387.0, 1092.32, 395.0, 1085.0, 400.86, 1075.0, 403.0, 1065.0, 400.86, 1057.68, 395.0, 1055.0, 387.0, 1057.68, 379.0, 1065.0, 373.14, 1075.0, 371.0, 1085.0, 373.14, 1092.32, 379.0)
 color = Color(0.8627450980392157, 0.6470588235294118, 0.6823529411764706, 1)
 z_index = 1
 
-[node name="Polygon2D540" type="Polygon2D" parent="."]
+[node name="Polygon2D554" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(915, 546, 925, 546, 925, 562, 915, 562)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D541" type="StaticBody2D" parent="."]
+[node name="StaticBody2D555" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D542" type="CollisionPolygon2D" parent="StaticBody2D541"]
+[node name="CollisionPolygon2D556" type="CollisionPolygon2D" parent="StaticBody2D555"]
 polygon = PackedVector2Array(915, 546, 925, 546, 925, 562, 915, 562)
 
-[node name="Polygon2D543" type="Polygon2D" parent="."]
+[node name="Polygon2D557" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(942.0, 527.0, 939.05, 535.8, 931.0, 542.24, 920.0, 544.6, 909.0, 542.24, 900.95, 535.8, 898.0, 527.0, 900.95, 518.2, 909.0, 511.76, 920.0, 509.4, 931.0, 511.76, 939.05, 518.2)
 color = Color(0.8627450980392157, 0.6470588235294118, 0.6823529411764706, 1)
 z_index = 1
 
-[node name="Polygon2D544" type="Polygon2D" parent="."]
+[node name="Polygon2D558" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(965, 586, 975, 586, 975, 602, 965, 602)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D545" type="StaticBody2D" parent="."]
+[node name="StaticBody2D559" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D546" type="CollisionPolygon2D" parent="StaticBody2D545"]
+[node name="CollisionPolygon2D560" type="CollisionPolygon2D" parent="StaticBody2D559"]
 polygon = PackedVector2Array(965, 586, 975, 586, 975, 602, 965, 602)
 
-[node name="Polygon2D547" type="Polygon2D" parent="."]
+[node name="Polygon2D561" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(988.0, 567.0, 985.59, 574.2, 979.0, 579.47, 970.0, 581.4, 961.0, 579.47, 954.41, 574.2, 952.0, 567.0, 954.41, 559.8, 961.0, 554.53, 970.0, 552.6, 979.0, 554.53, 985.59, 559.8)
 color = Color(0.8627450980392157, 0.6470588235294118, 0.6823529411764706, 1)
 z_index = 1
 
-[node name="Polygon2D548" type="Polygon2D" parent="."]
+[node name="Polygon2D562" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1045, 601, 1055, 601, 1055, 617, 1045, 617)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D549" type="StaticBody2D" parent="."]
+[node name="StaticBody2D563" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D550" type="CollisionPolygon2D" parent="StaticBody2D549"]
+[node name="CollisionPolygon2D564" type="CollisionPolygon2D" parent="StaticBody2D563"]
 polygon = PackedVector2Array(1045, 601, 1055, 601, 1055, 617, 1045, 617)
 
-[node name="Polygon2D551" type="Polygon2D" parent="."]
+[node name="Polygon2D565" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1073.0, 582.0, 1069.92, 591.2, 1061.5, 597.93, 1050.0, 600.4, 1038.5, 597.93, 1030.08, 591.2, 1027.0, 582.0, 1030.08, 572.8, 1038.5, 566.07, 1050.0, 563.6, 1061.5, 566.07, 1069.92, 572.8)
 color = Color(0.8627450980392157, 0.6470588235294118, 0.6823529411764706, 1)
 z_index = 1
 
-[node name="Polygon2D552" type="Polygon2D" parent="."]
+[node name="Polygon2D566" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1175, 206, 1185, 206, 1185, 222, 1175, 222)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D553" type="StaticBody2D" parent="."]
+[node name="StaticBody2D567" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D554" type="CollisionPolygon2D" parent="StaticBody2D553"]
+[node name="CollisionPolygon2D568" type="CollisionPolygon2D" parent="StaticBody2D567"]
 polygon = PackedVector2Array(1175, 206, 1185, 206, 1185, 222, 1175, 222)
 
-[node name="Polygon2D555" type="Polygon2D" parent="."]
+[node name="Polygon2D569" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1225.0, 187.0, 1218.97, 205.0, 1202.5, 218.18, 1180.0, 223.0, 1157.5, 218.18, 1141.03, 205.0, 1135.0, 187.0, 1141.03, 169.0, 1157.5, 155.82, 1180.0, 151.0, 1202.5, 155.82, 1218.97, 169.0)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D556" type="Polygon2D" parent="."]
+[node name="Polygon2D570" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1195, 646, 1205, 646, 1205, 662, 1195, 662)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D557" type="StaticBody2D" parent="."]
+[node name="StaticBody2D571" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D558" type="CollisionPolygon2D" parent="StaticBody2D557"]
+[node name="CollisionPolygon2D572" type="CollisionPolygon2D" parent="StaticBody2D571"]
 polygon = PackedVector2Array(1195, 646, 1205, 646, 1205, 662, 1195, 662)
 
-[node name="Polygon2D559" type="Polygon2D" parent="."]
+[node name="Polygon2D573" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1235.0, 627.0, 1230.31, 641.0, 1217.5, 651.25, 1200.0, 655.0, 1182.5, 651.25, 1169.69, 641.0, 1165.0, 627.0, 1169.69, 613.0, 1182.5, 602.75, 1200.0, 599.0, 1217.5, 602.75, 1230.31, 613.0)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D560" type="Polygon2D" parent="."]
+[node name="Polygon2D574" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(845, 726, 855, 726, 855, 742, 845, 742)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D561" type="StaticBody2D" parent="."]
+[node name="StaticBody2D575" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D562" type="CollisionPolygon2D" parent="StaticBody2D561"]
+[node name="CollisionPolygon2D576" type="CollisionPolygon2D" parent="StaticBody2D575"]
 polygon = PackedVector2Array(845, 726, 855, 726, 855, 742, 845, 742)
 
-[node name="Polygon2D563" type="Polygon2D" parent="."]
+[node name="Polygon2D577" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(890.0, 707.0, 884.64, 723.0, 870.0, 734.71, 850.0, 739.0, 830.0, 734.71, 815.36, 723.0, 810.0, 707.0, 815.36, 691.0, 830.0, 679.29, 850.0, 675.0, 870.0, 679.29, 884.64, 691.0)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D564" type="Polygon2D" parent="."]
+[node name="Polygon2D578" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(615, 816, 625, 816, 625, 832, 615, 832)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D565" type="StaticBody2D" parent="."]
+[node name="StaticBody2D579" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D566" type="CollisionPolygon2D" parent="StaticBody2D565"]
+[node name="CollisionPolygon2D580" type="CollisionPolygon2D" parent="StaticBody2D579"]
 polygon = PackedVector2Array(615, 816, 625, 816, 625, 832, 615, 832)
 
-[node name="Polygon2D567" type="Polygon2D" parent="."]
+[node name="Polygon2D581" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(662.0, 797.0, 656.37, 813.8, 641.0, 826.1, 620.0, 830.6, 599.0, 826.1, 583.63, 813.8, 578.0, 797.0, 583.63, 780.2, 599.0, 767.9, 620.0, 763.4, 641.0, 767.9, 656.37, 780.2)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D568" type="Polygon2D" parent="."]
+[node name="Polygon2D582" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1165, 896, 1175, 896, 1175, 912, 1165, 912)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D569" type="StaticBody2D" parent="."]
+[node name="StaticBody2D583" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D570" type="CollisionPolygon2D" parent="StaticBody2D569"]
+[node name="CollisionPolygon2D584" type="CollisionPolygon2D" parent="StaticBody2D583"]
 polygon = PackedVector2Array(1165, 896, 1175, 896, 1175, 912, 1165, 912)
 
-[node name="Polygon2D571" type="Polygon2D" parent="."]
+[node name="Polygon2D585" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1228.0, 877.0, 1220.23, 900.2, 1199.0, 917.18, 1170.0, 923.4, 1141.0, 917.18, 1119.77, 900.2, 1112.0, 877.0, 1119.77, 853.8, 1141.0, 836.82, 1170.0, 830.6, 1199.0, 836.82, 1220.23, 853.8)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D572" type="Polygon2D" parent="."]
+[node name="Polygon2D586" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1015, 986, 1025, 986, 1025, 1002, 1015, 1002)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D573" type="StaticBody2D" parent="."]
+[node name="StaticBody2D587" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D574" type="CollisionPolygon2D" parent="StaticBody2D573"]
+[node name="CollisionPolygon2D588" type="CollisionPolygon2D" parent="StaticBody2D587"]
 polygon = PackedVector2Array(1015, 986, 1025, 986, 1025, 1002, 1015, 1002)
 
-[node name="Polygon2D575" type="Polygon2D" parent="."]
+[node name="Polygon2D589" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(1070.0, 967.0, 1063.3, 987.0, 1045.0, 1001.64, 1020.0, 1007.0, 995.0, 1001.64, 976.7, 987.0, 970.0, 967.0, 976.7, 947.0, 995.0, 932.36, 1020.0, 927.0, 1045.0, 932.36, 1063.3, 947.0)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D576" type="Polygon2D" parent="."]
+[node name="Polygon2D590" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(95, 946, 105, 946, 105, 962, 95, 962)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D577" type="StaticBody2D" parent="."]
+[node name="StaticBody2D591" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D578" type="CollisionPolygon2D" parent="StaticBody2D577"]
+[node name="CollisionPolygon2D592" type="CollisionPolygon2D" parent="StaticBody2D591"]
 polygon = PackedVector2Array(95, 946, 105, 946, 105, 962, 95, 962)
 
-[node name="Polygon2D579" type="Polygon2D" parent="."]
+[node name="Polygon2D593" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(160.0, 927.0, 151.96, 951.0, 130.0, 968.57, 100.0, 975.0, 70.0, 968.57, 48.04, 951.0, 40.0, 927.0, 48.04, 903.0, 70.0, 885.43, 100.0, 879.0, 130.0, 885.43, 151.96, 903.0)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D580" type="Polygon2D" parent="."]
+[node name="Polygon2D594" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(285, 991, 295, 991, 295, 1007, 285, 1007)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D581" type="StaticBody2D" parent="."]
+[node name="StaticBody2D595" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D582" type="CollisionPolygon2D" parent="StaticBody2D581"]
+[node name="CollisionPolygon2D596" type="CollisionPolygon2D" parent="StaticBody2D595"]
 polygon = PackedVector2Array(285, 991, 295, 991, 295, 1007, 285, 1007)
 
-[node name="Polygon2D583" type="Polygon2D" parent="."]
+[node name="Polygon2D597" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(338.0, 972.0, 331.57, 991.2, 314.0, 1005.26, 290.0, 1010.4, 266.0, 1005.26, 248.43, 991.2, 242.0, 972.0, 248.43, 952.8, 266.0, 938.74, 290.0, 933.6, 314.0, 938.74, 331.57, 952.8)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
 
-[node name="Polygon2D584" type="Polygon2D" parent="."]
+[node name="Polygon2D598" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(75, 476, 85, 476, 85, 492, 75, 492)
 color = Color(0.5098039215686274, 0.4549019607843137, 0.35294117647058826, 1)
 z_index = -5
 
-[node name="StaticBody2D585" type="StaticBody2D" parent="."]
+[node name="StaticBody2D599" type="StaticBody2D" parent="."]
 
 
-[node name="CollisionPolygon2D586" type="CollisionPolygon2D" parent="StaticBody2D585"]
+[node name="CollisionPolygon2D600" type="CollisionPolygon2D" parent="StaticBody2D599"]
 polygon = PackedVector2Array(75, 476, 85, 476, 85, 492, 75, 492)
 
-[node name="Polygon2D587" type="Polygon2D" parent="."]
+[node name="Polygon2D601" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(120.0, 457.0, 114.64, 473.0, 100.0, 484.71, 80.0, 489.0, 60.0, 484.71, 45.36, 473.0, 40.0, 457.0, 45.36, 441.0, 60.0, 429.29, 80.0, 425.0, 100.0, 429.29, 114.64, 441.0)
 color = Color(0.5686274509803921, 0.6549019607843137, 0.4745098039215686, 1)
 z_index = 1
@@ -2986,12 +3100,12 @@ target_spawn = "FromCourtyard"
 [node name="FromMain" type="Marker2D" parent="Spawns"]
 position = Vector2(754, 300)
 
-[node name="Polygon2D590" type="Polygon2D" parent="."]
+[node name="Polygon2D604" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(692, 290, 728, 290, 728, 310, 692, 310)
 color = Color(0.9529411764705882, 0.8705882352941177, 0.6470588235294118, 1)
 z_index = -5
 
-[node name="Label591" type="Label" parent="."]
+[node name="Label605" type="Label" parent="."]
 offset_left = 699.0
 offset_top = 318.0
 offset_right = 809.0
@@ -3008,12 +3122,12 @@ target_spawn = "FromMain"
 [node name="FromKitchen" type="Marker2D" parent="Spawns"]
 position = Vector2(524, 325)
 
-[node name="Polygon2D593" type="Polygon2D" parent="."]
+[node name="Polygon2D607" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(462, 315, 498, 315, 498, 335, 462, 335)
 color = Color(0.9529411764705882, 0.8705882352941177, 0.6470588235294118, 1)
 z_index = -5
 
-[node name="Label594" type="Label" parent="."]
+[node name="Label608" type="Label" parent="."]
 offset_left = 469.0
 offset_top = 343.0
 offset_right = 579.0
@@ -3030,12 +3144,12 @@ target_spawn = "FromMain"
 [node name="FromEngawa" type="Marker2D" parent="Spawns"]
 position = Vector2(689, 435)
 
-[node name="Polygon2D596" type="Polygon2D" parent="."]
+[node name="Polygon2D610" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(627, 425, 663, 425, 663, 445, 627, 445)
 color = Color(0.9529411764705882, 0.8705882352941177, 0.6470588235294118, 1)
 z_index = -5
 
-[node name="Label597" type="Label" parent="."]
+[node name="Label611" type="Label" parent="."]
 offset_left = 634.0
 offset_top = 453.0
 offset_right = 744.0
@@ -3052,12 +3166,12 @@ target_spawn = "FromEngawa"
 [node name="FromDojo" type="Marker2D" parent="Spawns"]
 position = Vector2(454, 540)
 
-[node name="Polygon2D599" type="Polygon2D" parent="."]
+[node name="Polygon2D613" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(392, 530, 428, 530, 428, 550, 392, 550)
 color = Color(0.9529411764705882, 0.8705882352941177, 0.6470588235294118, 1)
 z_index = -5
 
-[node name="Label600" type="Label" parent="."]
+[node name="Label614" type="Label" parent="."]
 offset_left = 399.0
 offset_top = 558.0
 offset_right = 509.0
@@ -3074,12 +3188,12 @@ target_spawn = "FromCourtyard"
 [node name="FromField" type="Marker2D" parent="Spawns"]
 position = Vector2(320, 299)
 
-[node name="Polygon2D602" type="Polygon2D" parent="."]
+[node name="Polygon2D616" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(302, 245, 338, 245, 338, 265, 302, 265)
 color = Color(0.9529411764705882, 0.8705882352941177, 0.6470588235294118, 1)
 z_index = -5
 
-[node name="Label603" type="Label" parent="."]
+[node name="Label617" type="Label" parent="."]
 offset_left = 265.0
 offset_top = 317.0
 offset_right = 375.0

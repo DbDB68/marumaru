@@ -32,6 +32,16 @@ func run() -> void:
 		check(current_scene.get_node("Player").position.distance_to(expected) < 1, "Safe spawn " + room)
 	var player = current_scene.get_node("Player")
 	player.set_physics_process(false)
+	# Cross the pictured diagonal pond bridge in both directions, feet on deck.
+	for reverse in [false, true]:
+		var start := Vector2(738, 612) if not reverse else Vector2(847, 503)
+		var finish := Vector2(847, 503) if not reverse else Vector2(738, 612)
+		player.position = start - Vector2(0, 9)
+		for i in range(110):
+			await physics_frame
+			player.velocity = (finish - start).normalized() * 90
+			player.move_and_slide()
+		check((player.position + Vector2(0, 9)).distance_to(finish) < 15, "Diagonal bridge crossing, reverse=%s" % reverse)
 	# Walk the eastern bridge from south to north, using the actual player shape.
 	player.position = Vector2(1117, 705)
 	for i in range(60):

@@ -109,7 +109,23 @@ label(320,160,'田地')
 
 # Pond and creek are solid, with deliberate gaps under both wooden bridges.
 pond=[(724,460),(755,440),(786,450),(800,485),(793,515),(808,540),(794,584),(769,601),(732,580),(718,540),(725,510),(710,485)]
-poly(pond,'80aeb8'); solid(pond)
+poly(pond,'80aeb8')
+# Cut a diagonal corridor through the pond collider, matching the deck width.
+def clip_bank(vertices, threshold, keep_less):
+    result = []
+    for a, b in zip(vertices, vertices[1:] + vertices[:1]):
+        va, vb = sum(a) - threshold, sum(b) - threshold
+        inside_a = va <= 0 if keep_less else va >= 0
+        inside_b = vb <= 0 if keep_less else vb >= 0
+        if inside_a:
+            result.append(a)
+        if inside_a != inside_b:
+            t = va / (va - vb)
+            result.append((a[0] + t*(b[0]-a[0]), a[1] + t*(b[1]-a[1])))
+    return result
+
+solid(clip_bank(pond, 1320, True))
+solid(clip_bank(pond, 1380, False))
 creek=[(795,585),(805,620),(820,655),(850,666),(885,649),(922,650),(958,665),(995,658),(1030,644),(1094,659),(1135,670),(1175,665),(1270,665)]
 line(creek,'80aeb8',18,-4)
 for a,b in zip(creek,creek[1:]):
@@ -125,9 +141,12 @@ for a,b in zip(creek,creek[1:]):
 rect(1103,647,28,39,'c59c6d')
 for y in range(650,684,6):
     line([(1103,y),(1131,y)],'876d52',2,-3)
-# Small pond-side boardwalk; it follows the shore without blocking the path.
-line([(792,560),(817,534)],'ad805d',20,-3)
-line([(792,560),(817,534)],'e2bd89',14,-2)
+# Diagonal bridge extends onto dry land at both ends.
+line([(745,605),(840,510)],'ad805d',46,-3)
+line([(745,605),(840,510)],'e2bd89',42,-2)
+for step in range(0, 96, 8):
+    x, y = 745 + step, 605 - step
+    line([(x-13,y-13),(x+13,y+13)],'987453',2,-1)
 
 for x,y,r,cherry in [(1030,330,40,True),(1010,400,42,True),(1075,410,20,True),
     (920,550,22,True),(970,590,18,True),(1050,605,23,True),
