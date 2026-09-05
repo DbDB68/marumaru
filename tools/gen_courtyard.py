@@ -85,21 +85,59 @@ paths = [
     [(975,220),(935,185),(930,135),(930,60)],
     [(1060,235),(1100,175),(1170,130),(1180,90)],
     [(1050,675),(1050,830)],
-    [(700,645),(550,645),(420,730),(245,820)],
-    [(550,645),(460,530),(340,440),(180,440),(180,275)],
 ]
 for p in paths:
     line(p,'bca67c',30)
     line(p,'ecd8ab',24,-7)
+
+# Only the thin connections in the west drawing are paths.
+for p in [
+    [(160,445),(160,500)],
+    [(400,500),(425,500),(425,465)],
+    [(455,360),(455,385)],
+    [(620,355),(620,385)],
+    [(500,535),(500,555)],
+    [(365,740),(365,760),(470,760)],
+    [(120,785),(200,785),(315,785),(315,855)],
+    [(200,785),(200,810),(140,860)],
+]:
+    line(p,'bca67c',10)
+    line(p,'ecd8ab',7,-7)
 
 # Footprints retain the drawing's north entrance, west wings and east garden.
 for b in [(555,25,210,125,''),(570,160,130,195,'主屋'),(425,385,210,80,'缘侧'),
           (325,270,145,90,'厨房'),(155,500,245,80,'手合场'),(155,580,65,160,''),
           (330,580,70,160,''),(90,340,75,105,''),(215,325,90,70,''),
           (205,25,260,32,''),(890,25,85,30,''),(1000,25,85,30,''),
-          (230,855,160,50,''),(470,755,80,45,''),(840,270,90,45,''),
+          (500,465,80,70,''),(485,555,30,30,''),
+          (230,855,160,50,''),(470,755,80,25,''),(470,780,30,45,''),
+          (825,205,90,45,''),
           (1030,840,45,48,'')]:
     building(*b)
+
+# White threshold strips and the smaller southwest buildings from the plan.
+for x,y,w,h in [(325,270,18,90),(452,292,18,68),(330,722,70,18),
+                (230,855,20,50),(370,855,20,50)]:
+    rect(x,y,w,h,'eee9db')
+diamond=[(105,860),(135,830),(165,860),(135,890)]
+poly(diamond,'a67f58'); solid(diamond)
+poly([(112,860),(135,837),(158,860),(135,883)],'dfc59b')
+# Round western-style gazebo: pale octagonal roof, columns, open south entrance.
+gazebo=[(120+math.cos(i*math.tau/8)*23,785+math.sin(i*math.tau/8)*23) for i in range(8)]
+poly(gazebo,'f0eee5')
+line(gazebo+[gazebo[0]],'96998f',2,-4)
+for x,y in [(101,774),(135,774),(101,794),(135,794)]:
+    rect(x,y,4,6,'999b91',True)
+label(120,812,'园亭')
+# The small pool beside the southwest annex.
+poly([(530+math.cos(i*math.tau/16)*28,802+math.sin(i*math.tau/16)*28) for i in range(16)],'80aeb8')
+solid([(530+math.cos(i*math.tau/16)*28,802+math.sin(i*math.tau/16)*28) for i in range(16)])
+# Stone shrine at the northeast path endpoint.
+rect(1157,52,46,34,'a7aa9f')
+rect(1164,55,32,22,'898f86',True)
+rect(1171,60,18,17,'535e58')
+poly([(1158,55),(1168,43),(1192,43),(1202,55)],'c5c8be')
+label(1180,22,'石祠')
 rect(170,115,300,130,'98ac79')
 for y in range(126,240,18):
     line([(180,y),(460,y)],'788e62',5,-4)
