@@ -97,7 +97,7 @@ for p in [
     [(455,360),(455,385)],
     [(620,355),(620,385)],
     [(500,535),(500,555)],
-    [(365,740),(365,760),(470,760)],
+    [(365,740),(365,775),(450,775)],
     [(120,785),(200,785),(315,785),(315,855)],
     [(200,785),(200,810),(140,860)],
 ]:
@@ -110,7 +110,7 @@ for b in [(555,25,210,125,''),(570,160,130,195,'主屋'),(425,385,210,80,'缘侧
           (330,580,70,160,''),(90,340,75,105,''),(215,325,90,70,''),
           (205,25,260,32,''),(890,25,85,30,''),(1000,25,85,30,''),
           (500,465,80,70,''),(485,555,30,30,''),
-          (230,855,160,50,''),(470,755,80,25,''),(470,780,30,45,''),
+          (230,855,160,50,''),(450,755,150,45,''),(450,800,50,75,''),
           (825,205,90,45,''),
           (1030,840,45,48,'')]:
     building(*b)
@@ -129,9 +129,13 @@ line(gazebo+[gazebo[0]],'96998f',2,-4)
 for x,y in [(101,774),(135,774),(101,794),(135,794)]:
     rect(x,y,4,6,'999b91',True)
 label(120,812,'园亭')
-# The small pool beside the southwest annex.
-poly([(530+math.cos(i*math.tau/16)*28,802+math.sin(i*math.tau/16)*28) for i in range(16)],'80aeb8')
-solid([(530+math.cos(i*math.tau/16)*28,802+math.sin(i*math.tau/16)*28) for i in range(16)])
+# Public bath scale trial: larger L-shaped wing and outdoor bath, same world size.
+# The pale threshold is scenery until a bath interior is implemented.
+rect(450,765,12,24,'eee9db')
+label(550,731,'大浴场')
+bath_edge=[(550+math.cos(i*math.tau/16)*46,841+math.sin(i*math.tau/16)*38) for i in range(16)]
+poly(bath_edge,'b5b4a1'); solid(bath_edge)
+poly([(550+math.cos(i*math.tau/16)*39,841+math.sin(i*math.tau/16)*31) for i in range(16)],'80aeb8')
 # Stone shrine at the northeast path endpoint.
 rect(1157,52,46,34,'a7aa9f')
 rect(1164,55,32,22,'898f86',True)
@@ -187,7 +191,7 @@ for step in range(0, 96, 8):
 for x,y,r,cherry in [(1030,330,40,True),(1010,400,42,True),(1075,410,20,True),
     (920,550,22,True),(970,590,18,True),(1050,605,23,True),
     (1180,210,45,False),(1200,650,35,False),(850,730,40,False),
-    (620,820,42,False),(1170,900,58,False),(1020,990,50,False),
+    (660,915,42,False),(1170,900,58,False),(1020,990,50,False),
     (100,950,60,False),(290,995,48,False),(80,480,40,False)]:
     rect(x-5,y-4,10,16,'82745a',True)
     canopy=[(x+math.cos(i*math.tau/12)*r,y-23+math.sin(i*math.tau/12)*r*.8) for i in range(12)]
