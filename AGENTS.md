@@ -1,7 +1,7 @@
 # marumaru 仓库协作备忘
 
 本丸同人陪伴小游戏（刀剑乱舞），Godot 4.7.2 + GDScript，像素风。
-项目在 `D:\Dev\marumaru`，GitHub 私仓 `DbDB68/marumaru`（分支 master）。
+项目在 `D:\Dev\marumaru`，GitHub 公开仓库 `DbDB68/marumaru`（分支 master，2026-09-25 老大拍板公开）。
 
 ## 跑法
 
